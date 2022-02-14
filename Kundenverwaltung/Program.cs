@@ -8,7 +8,7 @@ string? userInput = Console.ReadLine();
 Console.ForegroundColor = ConsoleColor.Red;
 
 // Konsole Hintergrundfarbe verändern
-Console.BackgroundColor = ConsoleColor.White;
+Console.BackgroundColor = ConsoleColor.Red;
 
-// Konsole warten auf eine Eingabe
+// Konsole warten auf irgendeine Eingabe
 Console.ReadKey();
