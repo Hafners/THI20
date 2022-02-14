@@ -22,7 +22,7 @@ namespace Kundenverwaltung
 
             Kunde_Hafner kunde2 = new Kunde_Hafner();
             kunde2.Id = 2;
-            kunde2.Name = "Josf";
+            kunde2.Name = "Josef";
             kunden1.Add(kunde2);
 
             Kunde_Hafner kunde3 = new Kunde_Hafner();
@@ -44,7 +44,7 @@ namespace Kundenverwaltung
             List<Kunde_Hafner> kunden2 = new List<Kunde_Hafner>()
             {
                 new Kunde_Hafner(){ Id = 1, Name = "Stefan"},
-                new Kunde_Hafner(){ Id = 2, Name = "Josf"},
+                new Kunde_Hafner(){ Id = 2, Name = "Josef"},
                 new Kunde_Hafner(){ Id = 3, Name = "Julia"},
                 new Kunde_Hafner(){ Id = 4, Name = "Uwe"},
                 new Kunde_Hafner(){ Id = 5, Name = "Rudolf"},
