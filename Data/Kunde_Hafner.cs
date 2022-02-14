@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace Data
 {
     internal class Kunde_Hafner
-    {
+    { 
     }
 }
