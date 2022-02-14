@@ -9,5 +9,6 @@ namespace Data
     internal class Kunde_Zukunft
     {
         // it works
+        // ich bin dumm
     }
 }
