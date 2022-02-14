@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    internal class Kunde_Rose
+    internal class Kunde_Zukunft
     {
+
     }
 }
