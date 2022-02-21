@@ -1,0 +1,17 @@
+1. Lege eine Klasse Customer im Projekt Data mit folgenden Properties an:
+	- Id int
+	- CustomerNumber int
+	- Name string
+	- Zipcode string
+	- Country enum
+		- Germany
+		- England
+		- Austria
+		- Brasil
+	- Street string
+	- City string
+2. Schreibe eine Methode, womit über die Konsole die Daten eingelesen werden können.
+3. Speichere die eingegebenen Daten in einem Datenobjekt vom Typ Customer.
+4. Gib alle Daten auf der Konsole in roter schrift wieder aus.
+5. Refaktore das ganze so, dass beliebig viele Kunden eingelesen werden können und 
+   mit der Benutzereingabe "Exit" das Program aus der Schleife aussteigt.

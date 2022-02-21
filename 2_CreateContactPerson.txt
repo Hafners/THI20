@@ -1,0 +1,10 @@
+1. Lege eine Klasse ContactPerson im Projekt Data mit folgenden Properties an:
+	- Id int
+	- FirstName string
+	- LastName string
+	- Birthday DateTime
+2. Schreibe eine Methode, womit über die Konsole die Daten pro Kunde eingelesen werden können.
+3. Speichere die eingegebenen Daten in einer Liste im Kunden.
+4. Gib alle Daten auf der Konsole in roter schrift wieder aus.
+5. Refaktore das ganze so, dass beliebig viele Kunden & Kontaktpersonen eingelesen werden können und 
+   mit der Benutzereingabe "Exit" das Program aus der Schleife aussteigt.

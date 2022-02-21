@@ -1,0 +1,2 @@
+1. Erstelle eine Oberfläche in WPF zum Erfassen der Kundendaten.
+2. Binde die Oberfläche an deine bestehende REST-API an.

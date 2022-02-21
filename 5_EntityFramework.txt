@@ -1,0 +1,6 @@
+1. Lege ein Datenkontext für die Applikation an.
+2. Erstelle eine Inital-Migration und Update die Datenbank.
+3. Schreibe ein Program, womit 10 Kunden, Kontaktpersonen und Bestellungen als Default in der Datenbank angelegt werden.
+4. Schreibe eine Methode womit alle Kunden aus der Datenbank ausgelesen werden können.
+5. Schreibe eine Methode, womit ein bestehender Kunde ein update bekommt.
+7. Schreibe eine Methode, womit ein bestehender Kunde aus der Datenbank gelöscht werden kann.

@@ -1,0 +1,3 @@
+1. Speichere alle Dateien in einer XMl Datei.
+2. Lade beim Programmstart alle existierenden Datensätze und gib diese aus.
+3. Speichere alle Daten in einer JSON Datei.

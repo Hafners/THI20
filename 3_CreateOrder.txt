@@ -1,0 +1,13 @@
+1. Lege eine Klasse Order im Projekt Data mit folgenden Properties an:
+	- Id int
+	- SummaryAmount decimal
+	- OrderDate DateTime
+2. Lege eine Klasse OrderPosition im Projekt Data mit folgenden Properties an:
+	- Id int
+	- ArticleNumber int
+	- Amount decimal
+2. Schreibe eine Methode, womit über die Konsole die Daten pro Kontaktperson eingelesen werden können.
+3. Speichere die eingegebenen Daten in einer Liste in der Kontaktperson.
+4. Gib alle Daten auf der Konsole in roter schrift wieder aus.
+5. Refaktore das ganze so, dass beliebig viele Kunden, Kontaktpersonen, Bestellungen, Bestellpositionen 
+   eingelesen werden können und mit der Benutzereingabe "Exit" das Program aus der Schleife aussteigt.

@@ -1,0 +1,5 @@
+1. Erstelle eine REST-API für alle CRUD-Operations bei:
+	- Kunden
+	- Kontaktperson
+	- Bestellungen
+2. Teste das ganze mit Postman
