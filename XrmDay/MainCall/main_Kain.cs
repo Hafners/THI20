@@ -8,8 +8,7 @@ namespace XrmDay.MainCall
     {
         public void execute()
         {
-
-
+            
 int temp = 0;
 
 List<Customer_Kain> customerList = new List<Customer_Kain>();
@@ -91,6 +90,7 @@ do
 
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("Weiteren Kunden hinzufügen? [ja = 1 | nein = 0]");
+    
     userInput = Console.ReadLine();
     int parsedS = int.Parse(userInput!);
     isValid = int.TryParse(userInput, out int parsedS1);
