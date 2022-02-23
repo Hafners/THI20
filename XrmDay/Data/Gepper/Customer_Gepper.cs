@@ -5,8 +5,8 @@ using System.Text;
 
 namespace XrmDay.Data
 {
-    class Customer_Gepper
-    {
+    class main_Gepper
+	{
 		public int Id { get; set; } = 0;
 
 		public int CustomerNumber { get; set; }
@@ -39,19 +39,6 @@ namespace XrmDay.Data
 			userInput = Console.ReadLine();
 			Zipcode = userInput;
 
-			Console.WriteLine("Geben sie ihr Land ein: ");
-			userInput = Console.ReadLine();
-
-			/*
-			bool isValid = int.TryParse(userInput, out int parsedAge1);
-			if (isValid)
-			{
-				instance1.Age = parsedAge;
-				instance1.Age
-			}
-			int parsedAge = int.Parse(userInput);
-			*/
-
 			Console.WriteLine("Geben sie ihre Straße ein: ");
 			userInput = Console.ReadLine();
 			Street = userInput;
@@ -69,5 +56,11 @@ namespace XrmDay.Data
 			Console.WriteLine(Street);
 			Console.WriteLine(City);
         }
+
+		public void execute() 
+		{
+			saveUserData();
+			ausgeben();
+		}
 	}
 }

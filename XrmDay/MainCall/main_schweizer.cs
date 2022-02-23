@@ -4,17 +4,17 @@ using System.Text;
 
 namespace XrmDay.MainCall
 {
-    internal class main_heimbach
+    internal class main_schweizer
     {
         public void Execute()
         {
             int weiter = 0;
-            do
-            {
-                XrmDay.Customer_Heimbach customer = new XrmDay.Customer_Heimbach();
+            List<Customer_Schweizer> customerList = new List<Customer_Schweizer>();
+            do {
+                XrmDay.Customer_Schweizer customer = new XrmDay.Customer_Schweizer();
                 // ID
                 Console.WriteLine("Bitte gib eine Id ein");
-                string? userInput = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
                 bool isValid = int.TryParse(userInput, out int parsedID);
                 if (isValid)
@@ -46,21 +46,21 @@ namespace XrmDay.MainCall
                 Console.WriteLine("Bitte gib ein Country ein");
                 userInput = Console.ReadLine();
 
-                isValid = Data.Heimbach.enumerations.Country.TryParse(userInput, out Data.Heimbach.enumerations.Country parsedCountry);
+                isValid = Data.Schweizer.enumerations.Country.TryParse(userInput, out Data.Schweizer.enumerations.Country parsedCountry);
                 if (isValid)
                 {
                     switch (parsedCountry)
                     {
-                        case (Data.Heimbach.enumerations.Country)0:
+                        case (Data.Schweizer.enumerations.Country)0:
                             customer.Land = parsedCountry;
                             break;
-                        case (Data.Heimbach.enumerations.Country)1:
+                        case (Data.Schweizer.enumerations.Country)1:
                             customer.Land = parsedCountry;
                             break;
-                        case (Data.Heimbach.enumerations.Country)2:
+                        case (Data.Schweizer.enumerations.Country)2:
                             customer.Land = parsedCountry;
                             break;
-                        case (Data.Heimbach.enumerations.Country)3:
+                        case (Data.Schweizer.enumerations.Country)3:
                             customer.Land = parsedCountry;
                             break;
                     }
@@ -87,17 +87,16 @@ namespace XrmDay.MainCall
                 Console.WriteLine("Street: " + customer.Street);
                 Console.WriteLine("City: " + customer.City);
 
-                Console.ForegroundColor = ConsoleColor.White;
-
                 Console.WriteLine("Nochmal Customer eingeben (1=ja, 0=nein): ?");
                 userInput = Console.ReadLine();
                 isValid = int.TryParse(userInput, out int paredDO);
 
+                customerList.Add(customer);
                 if (isValid)
                 {
                     weiter = 1;
                 }
             } while (weiter == 1);
-        }
+         }
     }
 }

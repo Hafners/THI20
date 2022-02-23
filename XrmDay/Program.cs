@@ -8,6 +8,8 @@ namespace XrmDay
     {
         static void Main(string[] args)
         {
+            new main_Kain().execute();
+            new main_Gepper().execute();
             
             new main_Kain().execute(); 
             //TEST VON GEPPER
@@ -21,6 +23,7 @@ namespace XrmDay
             
             new Main_Verachter().execute();
             
+            new main_schweizer().Execute();
         }
     }
 }
