@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using XrmDay.Data.Schweizer;
 
-namespace xrmday.data.schweizer
+namespace XrmDay.Data.Schweizer
 {
-    public class orderposition_schweizer
+    public class OrderPosition_Schweizer
     {
         public int Id { get; set; }
-        public int articlenumber { get; set; }
-        public decimal amount { get; set; }
+        public int ArticleNumber { get; set; }
+        public decimal Amount { get; set; }
     }
 }
