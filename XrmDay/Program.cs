@@ -7,7 +7,8 @@ namespace XrmDay
     {
         static void Main(string[] args)
         {
-            new main_Kain().execute(); 
+            new main_Kain().execute();
+            new main_Heimbach().execute();
         }
     }
 }
