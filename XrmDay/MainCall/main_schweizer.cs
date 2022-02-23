@@ -11,7 +11,8 @@ namespace XrmDay.MainCall
         {
             int weiter = 0;
             List<Customer_Schweizer> customerList = new List<Customer_Schweizer>();
-            do {
+            do
+            {
                 Customer_Schweizer customer = new Customer_Schweizer();
                 // ID
                 Console.WriteLine("Bitte gib eine Id ein");
@@ -88,17 +89,19 @@ namespace XrmDay.MainCall
                 Console.WriteLine("Street: " + customer.Street);
                 Console.WriteLine("City: " + customer.City);
 
-                Console.ForegroundColor= ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.White;
 
-                execute_ContactPerson();
+                execute_ContactPerson(customer);
+
                 Console.ForegroundColor = ConsoleColor.Red;
-                customer.ContactPersons.ForEach(contactPerson => Console.WriteLine(
+                customer.ContactPersons.ForEach(contactPerson =>
+                {
+                    Console.WriteLine(
                     " ID: " + contactPerson.ID +
                     " First Name: " + contactPerson.FirstName +
                     " Last Name: " + contactPerson.LastName +
-                    " Birthday: " + contactPerson.Birthday));
-
-                Console.WriteLine(customer.ContactPersons);
+                    " Birthday: " + contactPerson.Birthday);
+                });
 
                 Console.WriteLine("Nochmal Customer eingeben (1=ja, 0=nein): ?");
                 userInput = Console.ReadLine();
@@ -106,14 +109,15 @@ namespace XrmDay.MainCall
 
                 customerList.Add(customer);
 
-                if (isValid && parsedDO ==1)
+                weiter = 0;
+                if (isValid && parsedDO == 1)
                 {
                     weiter = 1;
                 }
             } while (weiter == 1);
-         }
+        }
 
-        public void execute_ContactPerson()
+        public void execute_ContactPerson(Customer_Schweizer customer_Schweizer)
         {
             int hilf_while = 0;
             do
@@ -154,19 +158,39 @@ namespace XrmDay.MainCall
                     contactPerson_Schweizer.Birthday = DateTime.MinValue;
                 }
 
-                Customer_Schweizer customer_Schweizer = new Customer_Schweizer();
                 customer_Schweizer.ContactPersons.Add(contactPerson_Schweizer);
+
 
                 Console.WriteLine("Nochmal ContactPerson eingeben (1=ja, 0=nein): ?");
                 userInput = Console.ReadLine();
                 isValid = int.TryParse(userInput, out int parsedDO);
 
+                hilf_while = 0;
                 if (isValid && parsedDO == 1)
                 {
                     hilf_while = 1;
                 }
 
             } while (hilf_while == 1);
+        }
+
+        public void execute_OrderSchweizer(ContactPerson_Schweizer contactPerson_Schweizer)
+        {
+            int weiter = 0;
+            List<Customer_Schweizer> customerList = new List<Customer_Schweizer>();
+            do
+            {
+                Customer_Schweizer customer = new Customer_Schweizer();
+                // ID
+                Console.WriteLine("Bitte gib eine Id ein");
+                string userInput = Console.ReadLine();
+
+                bool isValid = int.TryParse(userInput, out int parsedID);
+                if (isValid)
+                {
+                    customer.ID = parsedID;
+                }
+            } while (weiter == 1);
         }
     }
 }
