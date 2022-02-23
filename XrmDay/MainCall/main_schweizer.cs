@@ -9,6 +9,7 @@ namespace XrmDay.MainCall
         public void Execute()
         {
             int weiter = 0;
+            List<Customer_Schweizer> customerList = new List<Customer_Schweizer>();
             do {
                 XrmDay.Customer_Schweizer customer = new XrmDay.Customer_Schweizer();
                 // ID
@@ -90,6 +91,7 @@ namespace XrmDay.MainCall
                 userInput = Console.ReadLine();
                 isValid = int.TryParse(userInput, out int paredDO);
 
+                customerList.Add(customer);
                 if (isValid)
                 {
                     weiter = 1;
