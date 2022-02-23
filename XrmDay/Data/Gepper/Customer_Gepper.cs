@@ -100,11 +100,22 @@ namespace XrmDay.Data
 			Console.WriteLine("Postleitzahl: " + Zipcode);
 			Console.WriteLine("Stadt: " + City);
 			Console.WriteLine("Land: " + country);
+			Console.ForegroundColor = ConsoleColor.White;
 		}
 		public void execute() 
 		{
-			saveUserData();
-			ausgeben();
+			string exit = "leer";
+
+			while (exit != "exit")
+			{
+				saveUserData();
+                ausgeben();
+
+                Console.WriteLine("Wenn sie das weitere hinzufügen verlassen wollen, schreiben sie jetzt [exit] (ansonsten Enter drücken): ");
+                exit = Console.ReadLine();
+				if (exit == "exit") { Console.WriteLine("Das hinzufügen wird beendet"); };
+
+			}
 		}
 	}
 }
