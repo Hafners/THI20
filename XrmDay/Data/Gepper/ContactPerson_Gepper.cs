@@ -15,5 +15,10 @@ namespace XrmDay.Data
 
 		//todo
 		public int Date { get; set; } = 0;
+
+		public void saveUserData()
+        {
+			Console.WriteLine("To-Do");
+        }
 	}
 }
