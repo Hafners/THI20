@@ -5,8 +5,8 @@ using System.Text;
 
 namespace XrmDay.Data
 {
-    class Customer_Gepper
-    {
+    class main_Gepper
+	{
 		public int Id { get; set; } = 0;
 
 		public int CustomerNumber { get; set; }

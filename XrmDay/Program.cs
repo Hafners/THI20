@@ -8,15 +8,12 @@ namespace XrmDay
     {
         static void Main(string[] args)
         {
-            //new main_Kain().execute();
-            
-            //TEST VON GEPPER
-            /*
-            Customer_Gepper kunde_herrmann = new Customer_Gepper();
+            new main_Kain().execute();
+
+            main_Gepper kunde_herrmann = new main_Gepper();
             kunde_herrmann.saveUserData();
             kunde_herrmann.ausgeben();
-            */
-            //ENDE VON GEPPER
+
             new main_Heimbach().execute();
             new main_Erkelenz().execute();
             new main_schweizer().Execute();
