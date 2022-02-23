@@ -1,4 +1,4 @@
-namespace XrmDay.Data.Kain;
+namespace XrmDay.Data.Kain { 
 
 public class Customer_Kain
 {
@@ -8,7 +8,7 @@ public class Customer_Kain
     public string Zipcode { get; set; } = string.Empty;
     public string City { get; set; } = string.Empty;
 
-    public Country country { get; set; } = Country.Germany;
+        public Country country { get; set; } = Country.Germany;
     public enum Country
     {
         Germany,
@@ -16,4 +16,5 @@ public class Customer_Kain
         Austria,
         Brasil
     }
+}
 }
