@@ -24,7 +24,7 @@ namespace XrmDay
             
             new Main_Verachter().execute();
             
-            new main_schweizer().Execute();
+            //new main_schweizer().Execute();
             //new main_Kain().execute();
             //new main_Gepper().execute();
             //new main_Heimbach().execute();
