@@ -1,54 +1,87 @@
-﻿using Data;
+﻿
+using Data;
 using System;
-using Data.XrmRose;
-using Data.XrmRose.Enumerations;
 
-namespace Kundenverwaltung
+
+void datenEinlesen(Customer customer)
 {
-    class Program
+//id
+Console.Write("Id: ");
+string? userInput = Console.ReadLine();
+if (int.TryParse(userInput, out int parsedId))
+{
+customer.Id = parsedId;
+}
+else { Console.WriteLine("Eingabe ungültig!"); }
+
+//customerNumber
+Console.Write("Customer Number: ");
+userInput = Console.ReadLine();
+if (int.TryParse(userInput, out int parsedNumber))
+{
+customer.CustomerNumber = parsedNumber;
+}
+else { Console.WriteLine("Eingabe ungültig!"); }
+
+//name
+Console.Write("Name: ");
+customer.Name = Console.ReadLine();
+
+//zipcode
+Console.Write("Zipcode: ");
+customer.Zipcode = Console.ReadLine();
+
+// country
+Console.Write(
+    "Countries(Zahl eingeben):" +
+     "\nGermany => 0" +
+     "\nEngland => 1 " +
+     "\nAustria => 2" +
+     "\nBrasil => 3"
+     );
+
+Console.Write("Country: ");
+customer.City = Console.ReadLine();
+if (customer.City < 0 && customer.City > 3)
+{
+Console.Write("Fehler.");
+}
+else
+{
+Console.Write(customer.City);
+}
+
+Console.ForegroundColor = ConsoleColor.Red;
+}
+
+void DataAusgeben(Customer customer)
+{
+Console.Write("Daten die ausgelesen wurden...");
+Console.Write("Id" + id);
+}
+
+
+class Customer
+{
+
+    public int Id { get; set; }
+    public int CustomerNumber { get; set; }
+    public string Name { get; set; }
+    public string Zipcode { get; set; }
+    public enum Country
     {
-        public void Abfrage()
-        { 
-            #region Benutzerabfrage
-            Console.WriteLine("ID: ");
-            string? customerID = Console.ReadLine();
+        Germany = 0,
+        England = 1,
+        Austria = 2,
+        Brasil = 3
+    }
+    public string Street { get; set; }
+    public string City { get; set; }
 
-            Console.WriteLine("CustomerNumber: ");
-            string? customerNumber = Console.ReadLine();
 
-            Console.WriteLine("Name: ");
-            string? customerName = Console.ReadLine();
 
-            Console.WriteLine("Zipcode: ");
-            string? customerZipcode = Console.ReadLine();
 
-            Console.WriteLine("Country (Germany, England, Austria, Brazil): ");
-            string? customerCountry = Console.ReadLine();
+};
 
-            Console.WriteLine("Street: ");
-            string? customerStreet = Console.ReadLine();
-
-            Console.WriteLine("City: ");
-            string? customerCity = Console.ReadLine();
-            #endregion
-
-            #region inDieKlasse
-            Customer_Rose customer1 = new Customer_Rose();
-            bool isValid1 = int.TryParse(customerID, out int intID);
-            if(isValid1)
-            {
-                customer1.Id = intID;
-            }
-            bool isValid2 = int.TryParse(customerNumber, out int intNr);
-            if (isValid2)
-            {
-                customer1.CustomerNumber = intNr;
-            }
-           
-            bool isValid3 = Enum.TryParse(customerCountry, out Country EnumCountry);
-            if(isValid3)
-            {
-                customer1.Country = EnumCountry;
-            }
 
 

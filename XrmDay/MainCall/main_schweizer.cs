@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using XrmDay.Data.Schweizer;
 
 namespace XrmDay.MainCall
 {
@@ -11,7 +12,7 @@ namespace XrmDay.MainCall
             int weiter = 0;
             List<Customer_Schweizer> customerList = new List<Customer_Schweizer>();
             do {
-                XrmDay.Customer_Schweizer customer = new XrmDay.Customer_Schweizer();
+                Customer_Schweizer customer = new Customer_Schweizer();
                 // ID
                 Console.WriteLine("Bitte gib eine Id ein");
                 string userInput = Console.ReadLine();
@@ -46,21 +47,21 @@ namespace XrmDay.MainCall
                 Console.WriteLine("Bitte gib ein Country ein");
                 userInput = Console.ReadLine();
 
-                isValid = Data.Schweizer.enumerations.Country.TryParse(userInput, out Data.Schweizer.enumerations.Country parsedCountry);
+                isValid = enumerations.Country.TryParse(userInput, out enumerations.Country parsedCountry);
                 if (isValid)
                 {
                     switch (parsedCountry)
                     {
-                        case (Data.Schweizer.enumerations.Country)0:
+                        case (enumerations.Country)0:
                             customer.Land = parsedCountry;
                             break;
-                        case (Data.Schweizer.enumerations.Country)1:
+                        case (enumerations.Country)1:
                             customer.Land = parsedCountry;
                             break;
-                        case (Data.Schweizer.enumerations.Country)2:
+                        case (enumerations.Country)2:
                             customer.Land = parsedCountry;
                             break;
-                        case (Data.Schweizer.enumerations.Country)3:
+                        case (enumerations.Country)3:
                             customer.Land = parsedCountry;
                             break;
                     }
@@ -87,16 +88,85 @@ namespace XrmDay.MainCall
                 Console.WriteLine("Street: " + customer.Street);
                 Console.WriteLine("City: " + customer.City);
 
+                Console.ForegroundColor= ConsoleColor.White;
+
+                execute_ContactPerson();
+                Console.ForegroundColor = ConsoleColor.Red;
+                customer.ContactPersons.ForEach(contactPerson => Console.WriteLine(
+                    " ID: " + contactPerson.ID +
+                    " First Name: " + contactPerson.FirstName +
+                    " Last Name: " + contactPerson.LastName +
+                    " Birthday: " + contactPerson.Birthday));
+
+                Console.WriteLine(customer.ContactPersons);
+
                 Console.WriteLine("Nochmal Customer eingeben (1=ja, 0=nein): ?");
                 userInput = Console.ReadLine();
                 isValid = int.TryParse(userInput, out int parsedDO);
 
                 customerList.Add(customer);
+
                 if (isValid && parsedDO ==1)
                 {
                     weiter = 1;
                 }
             } while (weiter == 1);
          }
+
+        public void execute_ContactPerson()
+        {
+            int hilf_while = 0;
+            do
+            {
+                ContactPerson_Schweizer contactPerson_Schweizer = new ContactPerson_Schweizer();
+
+                // ID
+                Console.WriteLine("Bitte gib eine ContactPerson ID ein");
+                string userInput = Console.ReadLine();
+
+                bool isValid = int.TryParse(userInput, out int parsedID);
+                if (isValid)
+                {
+                    contactPerson_Schweizer.ID = parsedID;
+                }
+
+                // Vorname
+                Console.WriteLine("Bitte gib einen first name ein");
+                userInput = Console.ReadLine();
+                contactPerson_Schweizer.FirstName = userInput;
+
+                // Vorname
+                Console.WriteLine("Bitte gib einen last name ein");
+                userInput = Console.ReadLine();
+                contactPerson_Schweizer.LastName = userInput;
+
+                // Birthday
+                Console.WriteLine("Bitte gib einen ContactPerson Birtday ein");
+                userInput = Console.ReadLine();
+
+                isValid = DateTime.TryParse(userInput, out DateTime parsedBirthday);
+                if (isValid)
+                {
+                    contactPerson_Schweizer.Birthday = parsedBirthday;
+                }
+                else
+                {
+                    contactPerson_Schweizer.Birthday = DateTime.MinValue;
+                }
+
+                Customer_Schweizer customer_Schweizer = new Customer_Schweizer();
+                customer_Schweizer.ContactPersons.Add(contactPerson_Schweizer);
+
+                Console.WriteLine("Nochmal ContactPerson eingeben (1=ja, 0=nein): ?");
+                userInput = Console.ReadLine();
+                isValid = int.TryParse(userInput, out int parsedDO);
+
+                if (isValid && parsedDO == 1)
+                {
+                    hilf_while = 1;
+                }
+
+            } while (hilf_while == 1);
+        }
     }
 }
