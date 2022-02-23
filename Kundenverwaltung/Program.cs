@@ -65,4 +65,6 @@ class Customer
     }
 
 
+var b = 1;
+
 }
