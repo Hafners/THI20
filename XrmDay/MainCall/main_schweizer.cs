@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using XrmDay.Data.Schweizer;
 
 namespace XrmDay.MainCall
 {
@@ -47,7 +48,7 @@ namespace XrmDay.MainCall
                 Console.WriteLine("Bitte gib ein Country ein");
                 userInput = Console.ReadLine();
 
-                isValid = Data.Schweizer.enumerations.Country.TryParse(userInput, out Data.Schweizer.enumerations.Country parsedCountry);
+                isValid = enumerations.Country.TryParse(userInput, out enumerations.Country parsedCountry);
                 if (isValid)
                 {
                     switch (parsedCountry)
@@ -104,7 +105,7 @@ namespace XrmDay.MainCall
 
                 Console.WriteLine("Nochmal Customer eingeben (1=ja, 0=nein): ?");
                 userInput = Console.ReadLine();
-                isValid = int.TryParse(userInput, out int paredDO);
+                isValid = int.TryParse(userInput, out int parsedDO);
 
                 customerList.Add(customer);
 
