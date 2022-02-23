@@ -6,9 +6,4 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="MainCall\" />
-  </ItemGroup>
-
 </Project>
