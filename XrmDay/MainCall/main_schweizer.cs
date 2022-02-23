@@ -90,20 +90,21 @@ namespace XrmDay.MainCall
 
                 Console.ForegroundColor= ConsoleColor.White;
 
-                Console.WriteLine("Nochmal Customer eingeben (1=ja, 0=nein): ?");
-                userInput = Console.ReadLine();
-                isValid = int.TryParse(userInput, out int parsedDO);
-
-                customerList.Add(customer);
-
                 execute_ContactPerson();
-
                 Console.ForegroundColor = ConsoleColor.Red;
                 customer.ContactPersons.ForEach(contactPerson => Console.WriteLine(
                     " ID: " + contactPerson.ID +
                     " First Name: " + contactPerson.FirstName +
                     " Last Name: " + contactPerson.LastName +
                     " Birthday: " + contactPerson.Birthday));
+
+                Console.WriteLine(customer.ContactPersons);
+
+                Console.WriteLine("Nochmal Customer eingeben (1=ja, 0=nein): ?");
+                userInput = Console.ReadLine();
+                isValid = int.TryParse(userInput, out int parsedDO);
+
+                customerList.Add(customer);
 
                 if (isValid && parsedDO ==1)
                 {
