@@ -139,6 +139,20 @@ namespace XrmDay.MainCall
                 userInput = Console.ReadLine();
                 contactPerson_Schweizer.LastName = userInput;
 
+                // Birthday
+                Console.WriteLine("Bitte gib einen ContactPerson Birtday ein");
+                userInput = Console.ReadLine();
+
+                isValid = DateTime.TryParse(userInput, out DateTime parsedBirthday);
+                if (isValid)
+                {
+                    contactPerson_Schweizer.Birthday = parsedBirthday;
+                }
+                else
+                {
+                    contactPerson_Schweizer.Birthday = DateTime.MinValue;
+                }
+
                 Customer_Schweizer customer_Schweizer = new Customer_Schweizer();
                 customer_Schweizer.ContactPersons.Add(contactPerson_Schweizer);
 

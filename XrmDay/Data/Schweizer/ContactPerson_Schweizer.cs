@@ -4,7 +4,7 @@ using System.Text;
 using XrmDay.Data.Schweizer;
 
 namespace XrmDay.Data.Schweizer
-{
+{   
     public class ContactPerson_Schweizer
     {
         public int ID { get; set; }
