@@ -51,6 +51,7 @@ namespace XrmDay.MainCall.Erkelenz
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Add Contact Person? (Type 'Exit' to cancel) ");
             string inputContact = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.White;
             while (inputContact != "Exit")
             {
                 Console.ForegroundColor = ConsoleColor.White;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using XrmDay.Data.Erkelenz;
 
 namespace XrmDay.MainCall.Erkelenz

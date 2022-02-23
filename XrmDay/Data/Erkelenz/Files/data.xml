@@ -1,1 +1,23 @@
-<?xml version="1.0"?><customer id="3" />
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCustomer_Erkelenz xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Customer_Erkelenz>
+    <Id>3</Id>
+    <CustomerNumber>3</CustomerNumber>
+    <Name>nina</Name>
+    <Zipcode>293</Zipcode>
+    <Country>Austria</Country>
+    <Street>fja</Street>
+    <City>iowea</City>
+    <ContactPersons />
+  </Customer_Erkelenz>
+  <Customer_Erkelenz>
+    <Id>3</Id>
+    <CustomerNumber>3</CustomerNumber>
+    <Name>jfiowa</Name>
+    <Zipcode>oijwa</Zipcode>
+    <Country>England</Country>
+    <Street>fiowa</Street>
+    <City>jiwoa</City>
+    <ContactPersons />
+  </Customer_Erkelenz>
+</ArrayOfCustomer_Erkelenz>
