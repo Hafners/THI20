@@ -1,106 +1,54 @@
 ﻿using Data;
 using System;
+using Data.XrmRose;
+using Data.XrmRose.Enumerations;
 
-
-
-class Customer
+namespace Kundenverwaltung
 {
-    
-    int ID;
-    int customernumber;
-    string name;
-    string zipcode; 
-    enum Country
+    class Program
     {
-        Germany = 0,
-        England = 1, 
-        Austria = 2, 
-        Brasil = 3
-    }
-    string street;
-    string city;
-    string country; 
-    public void Eingabe()
-    {
-        //ID-Eingabe 
-        Console.Write("ID: ");
-        string? userInput = Console.ReadLine();
-        if (int.TryParse(userInput, out int parsedId))
-        {
-            ID = parsedId;
-        }
-        else { Console.WriteLine("Eingabe ungültig!"); }
+        public void Abfrage()
+        { 
+            #region Benutzerabfrage
+            Console.WriteLine("ID: ");
+            string? customerID = Console.ReadLine();
 
+            Console.WriteLine("CustomerNumber: ");
+            string? customerNumber = Console.ReadLine();
 
-        //Customer-Nummer-Eingabe
-        Console.Write("CustomerNummer: ");
-        string? Customer = Console.ReadLine();
-        if (int.TryParse(userInput, out int customersID))
-        {
-            customernumber = customersID; 
-        }
-        else { Console.WriteLine("Bitte gültiges Format für die Kundennummer eingeben!"); 
-        }
+            Console.WriteLine("Name: ");
+            string? customerName = Console.ReadLine();
 
-        //Kundename Eingabe 
-        Console.Write("Name: ");
-        name = Console.ReadLine();
+            Console.WriteLine("Zipcode: ");
+            string? customerZipcode = Console.ReadLine();
 
-        //zipcode
-        Console.Write("Zipcode: ");
-        zipcode = Console.ReadLine();
+            Console.WriteLine("Country (Germany, England, Austria, Brazil): ");
+            string? customerCountry = Console.ReadLine();
 
-        //ENUM-Eingabe 
-        Console.Write("Germany = 0");
-        Console.Write("England = 1"); 
-        Console.Write("Austria = 2"); 
-        Console.Write("Brasil = 3"); 
+            Console.WriteLine("Street: ");
+            string? customerStreet = Console.ReadLine();
 
-        string? userlanguage = Console.ReadLine();
+            Console.WriteLine("City: ");
+            string? customerCity = Console.ReadLine();
+            #endregion
 
-        if (int.TryParse(userlanguage, out int CountryId))
-        {
-            if(CountryId == 0)
+            #region inDieKlasse
+            Customer_Rose customer1 = new Customer_Rose();
+            bool isValid1 = int.TryParse(customerID, out int intID);
+            if(isValid1)
             {
-                 country =  Country.Germany.ToString();
-            }else if(CountryId == 1)
-            {
-               country =  Country.England.ToString(); 
-            }else if(CountryId == 2)
-            {
-                country = Country.Austria.ToString(); 
-            }else if(CountryId == 4)
-            {
-                country = Country.Brasil.ToString(); 
-            }else
-            {
-                Console.Write("Ungültige Eingabe. Default wird auf Deutsch gesetzt!!");
-                country = Country.Germany.ToString(); 
+                customer1.Id = intID;
             }
-            
-        }
-        
+            bool isValid2 = int.TryParse(customerNumber, out int intNr);
+            if (isValid2)
+            {
+                customer1.CustomerNumber = intNr;
+            }
+           
+            bool isValid3 = Enum.TryParse(customerCountry, out Country EnumCountry);
+            if(isValid3)
+            {
+                customer1.Country = EnumCountry;
+            }
 
 
-        //Strassen Eingabe  
-        Console.Write("Straße: ");
-        street= Console.ReadLine();
-
-        //Stadt Eingabe 
-        Console.Write("Stadt: ");
-        city = Console.ReadLine();
-    }
-    public void Ausgabe()
-    {
-        //Textfarbe auf Rot umstellen 
-        Console.ForegroundColor = ConsoleColor.Red;
-
-
-        Console.WriteLine($"{ID} ,{customernumber}"); 
-        Console.WriteLine(name, zipcode, street, city, country);
-
-       
-    }
-
-
-}
