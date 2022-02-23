@@ -14,7 +14,7 @@ namespace XrmDay.MainCall
                 XrmDay.Customer_Schweizer customer = new XrmDay.Customer_Schweizer();
                 // ID
                 Console.WriteLine("Bitte gib eine Id ein");
-                string? userInput = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
                 bool isValid = int.TryParse(userInput, out int parsedID);
                 if (isValid)

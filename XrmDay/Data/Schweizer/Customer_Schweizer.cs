@@ -12,10 +12,10 @@ namespace XrmDay
 
         public int ID { get; set; }
         public int? CustomerNumber { get; set; }
-        public string? Name { get; set; }
-        public string? Zipcode { get; set; }
+        public string Name { get; set; }
+        public string Zipcode { get; set; }
         public Data.Schweizer.enumerations.Country Land { get; set; }
-        public string? Street { get; set; }
-        public string? City { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
     }
 }
