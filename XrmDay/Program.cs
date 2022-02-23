@@ -14,6 +14,7 @@ namespace XrmDay
             kunde_herrmann.saveUserData();
             kunde_herrmann.ausgeben();
             //ENDE VON GEPPER
+            new main_schweizer().Execute();
 
         }
     }
