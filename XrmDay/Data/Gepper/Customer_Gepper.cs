@@ -39,19 +39,6 @@ namespace XrmDay.Data
 			userInput = Console.ReadLine();
 			Zipcode = userInput;
 
-			Console.WriteLine("Geben sie ihr Land ein: ");
-			userInput = Console.ReadLine();
-
-			/*
-			bool isValid = int.TryParse(userInput, out int parsedAge1);
-			if (isValid)
-			{
-				instance1.Age = parsedAge;
-				instance1.Age
-			}
-			int parsedAge = int.Parse(userInput);
-			*/
-
 			Console.WriteLine("Geben sie ihre Straße ein: ");
 			userInput = Console.ReadLine();
 			Street = userInput;
