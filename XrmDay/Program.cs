@@ -15,7 +15,7 @@ namespace XrmDay
             kunde_herrmann.ausgeben();
             //ENDE VON GEPPER
             new main_Heimbach().execute();
-            new Main_Erkelenz().execute();
+            new main_Erkelenz().execute();
             new main_schweizer().Execute();
         }
     }
