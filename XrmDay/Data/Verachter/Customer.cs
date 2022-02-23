@@ -35,6 +35,7 @@ namespace XrmDay.Data.Verachter
             Street = String.Empty;
             Country country;
         }
+        
     #endregion
     }
 }
