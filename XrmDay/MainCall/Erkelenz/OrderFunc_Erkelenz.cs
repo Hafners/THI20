@@ -30,16 +30,21 @@ namespace XrmDay.MainCall.Erkelenz
             // orderPositions
             order.OrderPositions = new List<OrderPosition_Erkelenz>();
             int count = 0;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Add Order Position? (Type 'Exit' to cancel) ");
             string inputOrderPos = Console.ReadLine();
             while (inputOrderPos != "Exit")
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 OrderPosition_Erkelenz orderPosition = new OrderPosition_Erkelenz();
                 Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("--------\nOrder Position " + ++count + ": ");
+                Console.WriteLine("----\nOrder Position " + ++count + ": ");
                 orderPositionFunc.DatenEinlesen(orderPosition);
-                Console.WriteLine("--------");
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("----");
                 order.OrderPositions.Add(orderPosition);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Add Order Position? (Type 'Exit' to cancel) ");
                 inputOrderPos = Console.ReadLine();
             }
             CalcSummaryAmount(order);
@@ -54,11 +59,12 @@ namespace XrmDay.MainCall.Erkelenz
             foreach (OrderPosition_Erkelenz orderPosition in order.OrderPositions)
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("------");
+                Console.WriteLine("----");
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Order Position " + ++count + ": ");
                 orderPositionFunc.DatenAusgeben(orderPosition);
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("----");
             }
         }
 

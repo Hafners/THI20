@@ -37,16 +37,21 @@ namespace XrmDay.MainCall.Erkelenz
             // order
             contact.Orders = new List<Order_Erkelenz>();
             int count = 0;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Add Order? (Type 'Exit' to cancel) ");
             string inputOrder = Console.ReadLine();
             while (inputOrder != "Exit")
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Order_Erkelenz order = new Order_Erkelenz();
                 Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("--------\nOrder Position " + ++count + ": ");
+                Console.WriteLine("------\nOrder " + ++count + ": ");
                 orderFunc.DatenEinlesen(order);
-                Console.WriteLine("--------");
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("------");
                 contact.Orders.Add(order);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Add Order? (Type 'Exit' to cancel) ");
                 inputOrder = Console.ReadLine();
             }
         }
@@ -62,12 +67,12 @@ namespace XrmDay.MainCall.Erkelenz
             foreach (Order_Erkelenz order in contact.Orders)
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("--------");
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("------");
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("Order " + ++count + ": ");
                 orderFunc.DatenAusgeben(order);
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("--------\n");
+                Console.WriteLine("------\n");
             }
         }
 

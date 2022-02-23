@@ -48,23 +48,30 @@ namespace XrmDay.MainCall.Erkelenz
             // contact person
             customer.ContactPersons = new List<ContactPerson_Erkelenz>();
             int count = 0;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Add Contact Person? (Type 'Exit' to cancel) ");
             string inputContact = Console.ReadLine();
             while (inputContact != "Exit")
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 ContactPerson_Erkelenz contactPerson = new ContactPerson_Erkelenz();
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("--------\nContact Person " + ++count + ": ");
                 contactPersonFunc.DatenEinlesen(contactPerson);
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("--------");
                 Console.ForegroundColor = ConsoleColor.White;
                 customer.ContactPersons.Add(contactPerson);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Add Contact Person? (Type 'Exit' to cancel) ");
+                Console.ForegroundColor = ConsoleColor.Gray;
                 inputContact = Console.ReadLine();
             }
         }
 
         public void DatenAusgeben(Customer_Erkelenz customer)
         {
-            Console.WriteLine("\nId: " + customer.Id);
+            Console.WriteLine("Id: " + customer.Id);
             Console.WriteLine("Customer Number: " + customer.CustomerNumber);
             Console.WriteLine("Name: " + customer.Name);
             Console.WriteLine("Zipcode: " + customer.Zipcode);

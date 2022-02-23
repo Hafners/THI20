@@ -10,18 +10,20 @@ namespace XrmDay.MainCall
         CustomerFunc_Erkelenz customerFunc = new CustomerFunc_Erkelenz();
         public void Execute()
         {
-            Console.ForegroundColor = ConsoleColor.White;
             List<Customer_Erkelenz> kunden = new List<Customer_Erkelenz>();
             string userInput = String.Empty;
             int count = 0;
             while (userInput != "Exit")
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Customer_Erkelenz kunde = new Customer_Erkelenz();
                 Console.WriteLine("----------\nKunde " + ++count + ": ");
                 customerFunc.DatenEinlesen(kunde);
                 kunden.Add(kunde);
-                //Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("--------\n");
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Add Customer? (Type 'Exit' to cancel) ");
                 userInput = Console.ReadLine();
             }
             count = 0;
