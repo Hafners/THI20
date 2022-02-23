@@ -89,10 +89,10 @@ namespace XrmDay.MainCall
 
                 Console.WriteLine("Nochmal Customer eingeben (1=ja, 0=nein): ?");
                 userInput = Console.ReadLine();
-                isValid = int.TryParse(userInput, out int paredDO);
+                isValid = int.TryParse(userInput, out int parsedDO);
 
                 customerList.Add(customer);
-                if (isValid)
+                if (isValid && parsedDO ==1)
                 {
                     weiter = 1;
                 }
