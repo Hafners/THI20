@@ -2,15 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace XrmDay.MainCall
 {
     public class Main_Verachter
     {
         List<Customer> customers = new List<Customer>();
-        Data.Verachter.Customer kunde = new Customer();
+        Customer kunde = new Customer();
+        ContactPerson kontakt = new ContactPerson();
+        List<ContactPerson> cPerson = new List<ContactPerson>();
 
-        public void einlesen() {
+        public void einlesenKunde() {
 
             Console.WriteLine("Geben Sie eine ID an:");
             string i = Console.ReadLine();
@@ -68,11 +71,50 @@ namespace XrmDay.MainCall
                         break;
                 }
             }
-            ausgeben();
+            Console.WriteLine("Wollen Sie den Kunden ausgeben? (j/n)");
+            string aw = Console.ReadLine();
+            if(aw.ToLower() == "j")
+            {
+                ausgebenKunde();
+            }
             customers.Add(kunde);
         }
 
-        public void ausgeben()
+
+        public void einlesenKontakt()
+        {
+            Console.WriteLine("Geben Sie eine ID an:");
+            string i = Console.ReadLine();
+            bool isValid = int.TryParse(i, out int parsedId);
+            if (isValid)
+            {
+                kontakt.Id = parsedId;
+            }
+
+            Console.WriteLine("Geben Sie einen Vornamen an:");
+            string fn = Console.ReadLine();
+            kontakt.FirstName = fn;
+
+            Console.WriteLine("Geben Sie einen Nachnamen an:");
+            string cn = Console.ReadLine();
+            kontakt.LastName = cn;
+
+            Console.WriteLine("Geben Sie das Geburtsdatum an: (DD/MM/YYYY)");
+            string inputDate = Console.ReadLine();
+            DateTime.TryParse(inputDate, out DateTime parsedDate);
+            kontakt.Birthday = parsedDate;
+
+            Console.WriteLine("Wollen Sie den Kontakt ausgeben? (j/n)");
+            string aw = Console.ReadLine();
+            if (aw.ToLower() == "j")
+            {
+                ausgebenKontakt();
+            }
+            cPerson.Add(kontakt);
+
+        }
+
+        public void ausgebenKunde()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Id = "+ kunde.Id);
@@ -85,17 +127,38 @@ namespace XrmDay.MainCall
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+        public void ausgebenKontakt()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Id = " + kunde.Id);
+            Console.WriteLine("Firstname = " + kontakt.FirstName);
+            Console.WriteLine("Lastname = " + kontakt.LastName);
+            Console.WriteLine("Birthday = " + kontakt.Birthday);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
         public void execute() {
 
-            string input = String.Empty;
+            string inputKunde = String.Empty;
+            string inputKontakt = String.Empty;
             do {
-                Console.WriteLine("Wollen Sie einen Kunden anlegen?");
-                input = Console.ReadLine();
-                if (input.ToLower() == "ja")
+
+                Console.WriteLine("Wollen Sie einen Kunden anlegen? ('Exit' zum beenden)");
+                inputKunde = Console.ReadLine();
+                if (inputKunde.ToLower() == "ja")
                 {
-                    einlesen();
+                    einlesenKunde();
                 }
-            } while (input != "Exit");
+
+                Console.WriteLine("Wollen Sie einen Kontakt anlegen? ('Exit' zum beenden)");
+                inputKontakt = Console.ReadLine();
+                if (inputKontakt.ToLower() == "ja")
+                {
+                    einlesenKontakt();
+                }
+
+            } while (!string.Equals(inputKunde, "exit", StringComparison.OrdinalIgnoreCase) && 
+                    !string.Equals(inputKontakt, "exit", StringComparison.OrdinalIgnoreCase));
 
         }
     }
