@@ -7,12 +7,41 @@ namespace XrmDay.MainCall
 {
     public class main_Erkelenz
     {
-        public void datenEinlesen(Customer_Erkelenz customer)
+        public void datenEinlesenContactPerson(ContactPerson_Erkelenz contact)
+        {
+            string ungueltig = "Eingabe ungültig";
+            string userInput;
+            // id
+            Console.Write("Id: ");
+            userInput = Console.ReadLine();
+            if (int.TryParse(userInput, out int parsedId)) { contact.Id = parsedId; }
+            else { Console.WriteLine(ungueltig); }
+
+            // first name
+            Console.Write("First Name: ");
+            contact.FirstName = Console.ReadLine();
+
+            // last name
+            Console.Write("Last Name: ");
+            contact.LastName = Console.ReadLine();
+
+            // birthday
+            Console.Write("Birthday: ");
+        }
+        public void datenAusgebenContactPerson(ContactPerson_Erkelenz contact)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nId: " + contact.Id);
+            Console.WriteLine("First Name: " + contact.FirstName);
+            Console.WriteLine("Last Name: " + contact.LastName);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+        public void datenEinlesenCustomer(Customer_Erkelenz customer)
         {
             // id
             string ungueltig = "Eingabe ungültig";
             Console.Write("Id: ");
-            string? userInput = Console.ReadLine();
+            string userInput = Console.ReadLine();
             if (int.TryParse(userInput, out int parsedId)) { customer.Id = parsedId; }
             else { Console.WriteLine(ungueltig); }
 
@@ -42,10 +71,8 @@ namespace XrmDay.MainCall
             // city
             Console.Write("City: ");
             customer.City = Console.ReadLine();
-
-            datenAusgeben(customer);
         }
-        public void datenAusgeben(Customer_Erkelenz customer)
+        public void datenAusgebenCustomer(Customer_Erkelenz customer)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nId: " + customer.Id);
@@ -61,13 +88,13 @@ namespace XrmDay.MainCall
         {
             Console.ForegroundColor = ConsoleColor.White;
             List<Customer_Erkelenz> kunden = new List<Customer_Erkelenz>();
-            string? userInput = String.Empty;
+            string userInput = String.Empty;
             int count = 0;
             while (userInput != "Exit")
             {
                 Customer_Erkelenz kunde = new Customer_Erkelenz();
                 Console.WriteLine("--------\nKunde " + ++count + ": ");
-                datenEinlesen(kunde);
+                datenEinlesenCustomer(kunde);
                 kunden.Add(kunde);
                 //Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("--------\n");
@@ -77,7 +104,7 @@ namespace XrmDay.MainCall
             foreach (Customer_Erkelenz customer in kunden)
             {
                 Console.Write("--------\nKunde " + ++count + ": ");
-                datenAusgeben(customer);
+                datenAusgebenCustomer(customer);
                 Console.WriteLine("--------\n");
             }
         }
