@@ -12,7 +12,7 @@ namespace XrmDay.MainCall
         {
             Console.ForegroundColor = ConsoleColor.White;
             List<Customer_Erkelenz> kunden = new List<Customer_Erkelenz>();
-            string? userInput = String.Empty;
+            string userInput = String.Empty;
             int count = 0;
             while (userInput != "Exit")
             {

@@ -9,7 +9,7 @@ namespace XrmDay.MainCall.Erkelenz
     public class OrderFunc_Erkelenz
     {
         OrderPositionFunc_Erkelenz orderPositionFunc = new OrderPositionFunc_Erkelenz();
-        void datenEinlesen(Order_Erkelenz order)
+        public void datenEinlesen(Order_Erkelenz order)
         {
             string ungueltig = "Eingabe ungültig";
             string userInput = string.Empty;
@@ -42,9 +42,10 @@ namespace XrmDay.MainCall.Erkelenz
                 order.OrderPositions.Add(orderPosition);
                 inputOrderPos = Console.ReadLine();
             }
+            calcSummaryAmount(order);
         }
 
-        void datenAusgeben(Order_Erkelenz order)
+        public void datenAusgeben(Order_Erkelenz order)
         {
             Console.WriteLine("Id: " + order.Id);
             Console.WriteLine("Summary Amount: " + order.SummaryAmount);
@@ -58,7 +59,6 @@ namespace XrmDay.MainCall.Erkelenz
                 Console.WriteLine("Order Position " + ++count + ": ");
                 orderPositionFunc.datenAusgeben(orderPosition);
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("------\n");
             }
         }
 
