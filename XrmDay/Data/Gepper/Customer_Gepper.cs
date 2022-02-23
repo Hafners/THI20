@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XrmDay.Data
 {
-    class main_Gepper
+	class Customer_Gepper
 	{
 		public int Id { get; set; } = 0;
 
@@ -31,13 +31,56 @@ namespace XrmDay.Data
 
 		public void saveUserData()
 		{
+			string? userInput;
+
+			Console.WriteLine("Bitte ID eingeben: ");
+			userInput = Console.ReadLine();
+			int parsedID = int.Parse(userInput!);
+			bool isValid = int.TryParse(userInput, out int parsedID1);
+			if (isValid) { Id = parsedID1; }
+
+			Console.WriteLine("Bitte Kundennummer eingeben: ");
+			userInput = Console.ReadLine();
+			int parsedCN = int.Parse(userInput!);
+			isValid = int.TryParse(userInput, out int parsedCN1);
+			if (isValid) { CustomerNumber = parsedCN1; }
+
 			Console.WriteLine("Geben sie ihren vollen Namen ein: ");
-			string? userInput = Console.ReadLine();
+			userInput = Console.ReadLine();
 			Name = userInput;
 
 			Console.WriteLine("Geben sie ihre Postleitzahl ein: ");
 			userInput = Console.ReadLine();
 			Zipcode = userInput;
+
+			Console.WriteLine(
+					"Bitte Land auswählen:\n0 = Germany\n1 = England\n2 = Austria\n3 = Brasil\nBei fehlerhafter Angabe: Germany");
+			userInput = Console.ReadLine();
+			int parsedCT = int.Parse(userInput!);
+			isValid = int.TryParse(userInput, out int parsedCT1);
+			if (isValid)
+			{
+				switch (parsedCT1)
+				{
+					case 0:
+						country = Country.Germany;
+						break;
+					case 1:
+						country = Country.England;
+						break;
+					case 2:
+						country = Country.Austria;
+						break;
+					case 4:
+						country = Country.Brasil;
+						break;
+					default:
+						country = Country.Germany;
+						Console.WriteLine("Eingabe fehlerhaft, default wird verwendet: Germany");
+						break;
+				}
+			}
+
 
 			Console.WriteLine("Geben sie ihre Straße ein: ");
 			userInput = Console.ReadLine();
@@ -49,18 +92,30 @@ namespace XrmDay.Data
 		}
 
 		public void ausgeben()
-        {
-			Console.WriteLine(Name);
-			Console.WriteLine(Zipcode);
-			//Console.WriteLine(Country);
-			Console.WriteLine(Street);
-			Console.WriteLine(City);
-        }
-
-		public void execute() 
 		{
-			saveUserData();
-			ausgeben();
+			Console.ForegroundColor = ConsoleColor.Red;
+			Console.WriteLine("ID: " + Id);
+			Console.WriteLine("CustomerNumber: " + CustomerNumber);
+			Console.WriteLine("Name: " + Name);
+			Console.WriteLine("Postleitzahl: " + Zipcode);
+			Console.WriteLine("Stadt: " + City);
+			Console.WriteLine("Land: " + country);
+			Console.ForegroundColor = ConsoleColor.White;
+		}
+		public void execute()
+		{
+			string exit = "leer";
+
+			while (exit != "exit")
+			{
+				saveUserData();
+				ausgeben();
+
+				Console.WriteLine("Wenn sie das weitere hinzufügen verlassen wollen, schreiben sie jetzt [exit] (ansonsten Enter drücken): ");
+				exit = Console.ReadLine();
+				if (exit == "exit") { Console.WriteLine("Das hinzufügen wird beendet"); };
+
+			}
 		}
 	}
 }
