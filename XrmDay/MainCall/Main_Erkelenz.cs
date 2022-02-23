@@ -5,10 +5,10 @@ using XrmDay.MainCall.Erkelenz;
 
 namespace XrmDay.MainCall
 {
-    public class main_Erkelenz
+    public class Main_Erkelenz
     {
         CustomerFunc_Erkelenz customerFunc = new CustomerFunc_Erkelenz();
-        public void execute()
+        public void Execute()
         {
             Console.ForegroundColor = ConsoleColor.White;
             List<Customer_Erkelenz> kunden = new List<Customer_Erkelenz>();
@@ -18,7 +18,7 @@ namespace XrmDay.MainCall
             {
                 Customer_Erkelenz kunde = new Customer_Erkelenz();
                 Console.WriteLine("----------\nKunde " + ++count + ": ");
-                customerFunc.datenEinlesen(kunde);
+                customerFunc.DatenEinlesen(kunde);
                 kunden.Add(kunde);
                 //Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("--------\n");
@@ -31,7 +31,7 @@ namespace XrmDay.MainCall
                 Console.WriteLine("----------");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Kunde " + ++count + ": ");
-                customerFunc.datenAusgeben(customer);
+                customerFunc.DatenAusgeben(customer);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("----------\n");
             }

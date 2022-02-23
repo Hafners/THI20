@@ -5,10 +5,10 @@ namespace XrmDay.MainCall.Erkelenz
 {
     public class OrderPositionFunc_Erkelenz
     {
-        public void datenEinlesen(OrderPosition_Erkelenz orderPosition)
+        public void DatenEinlesen(OrderPosition_Erkelenz orderPosition)
         {
             string ungueltig = "Eingabe ungültig";
-            string userInput = string.Empty;
+            string userInput;
 
             // id 
             Console.Write("Id: ");
@@ -28,7 +28,7 @@ namespace XrmDay.MainCall.Erkelenz
             if(decimal.TryParse(userInput, out decimal parsedAmount)) { orderPosition.Amount = parsedAmount; }
             else { Console.WriteLine(ungueltig); }
         }
-        public void datenAusgeben(OrderPosition_Erkelenz orderPosition)
+        public void DatenAusgeben(OrderPosition_Erkelenz orderPosition)
         {
             Console.WriteLine("Id: " + orderPosition.Id);
             Console.WriteLine("Article Number: " +  orderPosition.ArticleNumber);

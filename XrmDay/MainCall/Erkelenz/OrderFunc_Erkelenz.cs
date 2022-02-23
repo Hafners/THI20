@@ -9,10 +9,10 @@ namespace XrmDay.MainCall.Erkelenz
     public class OrderFunc_Erkelenz
     {
         OrderPositionFunc_Erkelenz orderPositionFunc = new OrderPositionFunc_Erkelenz();
-        public void datenEinlesen(Order_Erkelenz order)
+        public void DatenEinlesen(Order_Erkelenz order)
         {
             string ungueltig = "Eingabe ungültig";
-            string userInput = string.Empty;
+            string userInput;
 
             // id 
             Console.Write("Id: ");
@@ -36,16 +36,16 @@ namespace XrmDay.MainCall.Erkelenz
                 OrderPosition_Erkelenz orderPosition = new OrderPosition_Erkelenz();
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("--------\nOrder Position " + ++count + ": ");
-                orderPositionFunc.datenEinlesen(orderPosition);
+                orderPositionFunc.DatenEinlesen(orderPosition);
                 Console.WriteLine("--------");
                 Console.ForegroundColor = ConsoleColor.White;
                 order.OrderPositions.Add(orderPosition);
                 inputOrderPos = Console.ReadLine();
             }
-            calcSummaryAmount(order);
+            CalcSummaryAmount(order);
         }
 
-        public void datenAusgeben(Order_Erkelenz order)
+        public void DatenAusgeben(Order_Erkelenz order)
         {
             Console.WriteLine("Id: " + order.Id);
             Console.WriteLine("Summary Amount: " + order.SummaryAmount);
@@ -57,12 +57,12 @@ namespace XrmDay.MainCall.Erkelenz
                 Console.WriteLine("------");
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Order Position " + ++count + ": ");
-                orderPositionFunc.datenAusgeben(orderPosition);
+                orderPositionFunc.DatenAusgeben(orderPosition);
                 Console.ForegroundColor = ConsoleColor.White;
             }
         }
 
-        public void calcSummaryAmount(Order_Erkelenz order)
+        public void CalcSummaryAmount(Order_Erkelenz order)
         {
             foreach (OrderPosition_Erkelenz orderPosition in order.OrderPositions)
             {

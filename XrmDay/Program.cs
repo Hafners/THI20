@@ -8,7 +8,7 @@ namespace XrmDay
     {
         static void Main(string[] args)
         {
-            new main_Erkelenz().execute();
+            new Main_Erkelenz().Execute();
         }
     }
 }
