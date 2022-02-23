@@ -1,29 +1,103 @@
-﻿using XrmDay.Data.Heimbach;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace XrmDay.MainCall
 {
-    public class main_Heimbach
+    internal class main_heimbach
     {
-        public void execute()
+        public void Execute()
         {
-            string weiter = "j";
+            int weiter = 0;
+            do
+            {
+                XrmDay.Customer_Heimbach customer = new XrmDay.Customer_Heimbach();
+                // ID
+                Console.WriteLine("Bitte gib eine Id ein");
+                string? userInput = Console.ReadLine();
 
-            List<Customer_Heimbach> customerList = new List<Customer_Heimbach>();
-            Customer_Heimbach customer = new Customer_Heimbach;
-            while(counter != exit)
-            {
-                customer.datenEinlesen();
-                customerList.Add(customer);
-                Console.WriteLine("Weiteren Kunden eingeben (j) oder beenden (exit): ");
-                weiter = Console.ReadLine();
-            }
-            Console.WriteLine("Einlesen beendet.");
-            for(int i = 0; i < customerList.Count; ++i)
-            {
-                datenAusgeben(customerList[i]);
-            }
+                bool isValid = int.TryParse(userInput, out int parsedID);
+                if (isValid)
+                {
+                    customer.ID = parsedID;
+                }
+
+                // CustomerNummer
+                Console.WriteLine("Bitte gib eine CustomerNumber ein");
+                userInput = Console.ReadLine();
+
+                isValid = int.TryParse(userInput, out int parsedCustNum);
+                if (isValid)
+                {
+                    customer.CustomerNumber = parsedCustNum;
+                }
+
+                // Name
+                Console.WriteLine("Bitte gib einen Namen ein");
+                userInput = Console.ReadLine();
+                customer.Name = userInput;
+
+                // Zipcode
+                Console.WriteLine("Bitte gib einen Zipcode ein");
+                userInput = Console.ReadLine();
+                customer.Zipcode = userInput;
+
+                // Country 
+                Console.WriteLine("Bitte gib ein Country ein");
+                userInput = Console.ReadLine();
+
+                isValid = Data.Heimbach.enumerations.Country.TryParse(userInput, out Data.Heimbach.enumerations.Country parsedCountry);
+                if (isValid)
+                {
+                    switch (parsedCountry)
+                    {
+                        case (Data.Heimbach.enumerations.Country)0:
+                            customer.Land = parsedCountry;
+                            break;
+                        case (Data.Heimbach.enumerations.Country)1:
+                            customer.Land = parsedCountry;
+                            break;
+                        case (Data.Heimbach.enumerations.Country)2:
+                            customer.Land = parsedCountry;
+                            break;
+                        case (Data.Heimbach.enumerations.Country)3:
+                            customer.Land = parsedCountry;
+                            break;
+                    }
+                }
+
+                // Street
+                Console.WriteLine("Bitte gib eine Street ein");
+                userInput = Console.ReadLine();
+                customer.Street = userInput;
+
+                // City
+                Console.WriteLine("Bitte gib eine City ein");
+                userInput = Console.ReadLine();
+                customer.City = userInput;
+
+                // Konsole Textfarbe verändern
+                Console.ForegroundColor = ConsoleColor.Red;
+
+                Console.WriteLine("ID: " + customer.ID);
+                Console.WriteLine("CustomerNumber: " + customer.CustomerNumber);
+                Console.WriteLine("Name: " + customer.Name);
+                Console.WriteLine("Zipcode: " + customer.Zipcode);
+                Console.WriteLine("Country: " + customer.Land);
+                Console.WriteLine("Street: " + customer.Street);
+                Console.WriteLine("City: " + customer.City);
+
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.WriteLine("Nochmal Customer eingeben (1=ja, 0=nein): ?");
+                userInput = Console.ReadLine();
+                isValid = int.TryParse(userInput, out int paredDO);
+
+                if (isValid)
+                {
+                    weiter = 1;
+                }
+            } while (weiter == 1);
         }
     }
 }
