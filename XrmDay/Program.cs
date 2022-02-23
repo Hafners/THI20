@@ -1,5 +1,5 @@
-﻿using System;
-using XrmDay.MainCall;
+﻿using XrmDay.MainCall;
+using System;
 using XrmDay.Data;
 
 namespace XrmDay
@@ -9,14 +9,11 @@ namespace XrmDay
         static void Main(string[] args)
         {
             new main_Kain().execute();
-
-            main_Gepper kunde_herrmann = new main_Gepper();
-            kunde_herrmann.saveUserData();
-            kunde_herrmann.ausgeben();
-
+            new main_Gepper().execute();
             new main_Heimbach().execute();
             new main_Erkelenz().execute();
             new main_schweizer().Execute();
+            new main_kerscher().execute(); 
         }
     }
 }
