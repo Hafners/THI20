@@ -5,7 +5,7 @@ using XrmDay.Data.Erkelenz.Enumerations;
 
 namespace XrmDay.MainCall
 {
-    public class Main_Erkelenz
+    public class main_Erkelenz
     {
         public void datenEinlesen(Customer_Erkelenz customer)
         {
