@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using XrmDay.Data.Schweizer;
 
-namespace XrmDay.Data.Schweizer
+namespace XrmDay
 {
 
     public class Customer_Schweizer

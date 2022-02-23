@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XrmDay.Data
 {
-    class main_Gepper
+	class Customer_Gepper
 	{
 		public int Id { get; set; } = 0;
 
@@ -37,7 +37,7 @@ namespace XrmDay.Data
 			userInput = Console.ReadLine();
 			int parsedID = int.Parse(userInput!);
 			bool isValid = int.TryParse(userInput, out int parsedID1);
-			if (isValid) {Id = parsedID1;}
+			if (isValid) { Id = parsedID1; }
 
 			Console.WriteLine("Bitte Kundennummer eingeben: ");
 			userInput = Console.ReadLine();
@@ -102,17 +102,17 @@ namespace XrmDay.Data
 			Console.WriteLine("Land: " + country);
 			Console.ForegroundColor = ConsoleColor.White;
 		}
-		public void execute() 
+		public void execute()
 		{
 			string exit = "leer";
 
 			while (exit != "exit")
 			{
 				saveUserData();
-                ausgeben();
+				ausgeben();
 
-                Console.WriteLine("Wenn sie das weitere hinzufügen verlassen wollen, schreiben sie jetzt [exit] (ansonsten Enter drücken): ");
-                exit = Console.ReadLine();
+				Console.WriteLine("Wenn sie das weitere hinzufügen verlassen wollen, schreiben sie jetzt [exit] (ansonsten Enter drücken): ");
+				exit = Console.ReadLine();
 				if (exit == "exit") { Console.WriteLine("Das hinzufügen wird beendet"); };
 
 			}
