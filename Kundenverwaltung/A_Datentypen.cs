@@ -37,4 +37,5 @@ namespace Kundenverwaltung
         ObservableCollection<string> userStringUiList = new ObservableCollection<string>();
 
     }
+    
 }
