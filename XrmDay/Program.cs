@@ -1,4 +1,5 @@
 ﻿using System;
+using XrmDay.MainCall;
 
 namespace XrmDay
 {
@@ -6,7 +7,7 @@ namespace XrmDay
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new main_Kain().execute(); 
         }
     }
 }
