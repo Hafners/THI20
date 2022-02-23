@@ -56,5 +56,11 @@ namespace XrmDay.Data
 			Console.WriteLine(Street);
 			Console.WriteLine(City);
         }
+
+		public void execute() 
+		{
+			saveUserData();
+			ausgeben();
+		}
 	}
 }
