@@ -8,7 +8,6 @@ namespace XrmDay.MainCall
     {
         public void execute()
         {
-
             int temp = 0;
 
             List<Customer_Kain> customerList = new List<Customer_Kain>();
@@ -103,6 +102,7 @@ namespace XrmDay.MainCall
                     Console.WriteLine("Fehlerhafte Eingabe... Programm wird beendet");
                     temp = 0;
                 }
+
                 customerList.Add(instance1);
             } while (temp != 0);
         }

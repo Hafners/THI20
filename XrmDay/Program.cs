@@ -19,6 +19,7 @@ namespace XrmDay
             //ENDE VON GEPPER
             new main_Heimbach().execute();
             new main_Erkelenz().execute();
+            new main_schweizer().Execute();
         }
     }
 }
