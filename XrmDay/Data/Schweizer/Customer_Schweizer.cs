@@ -18,6 +18,8 @@ namespace XrmDay
         public enumerations.Country Land { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
+
         public List<ContactPerson_Schweizer> ContactPersons = new List<ContactPerson_Schweizer>();
+
     }
 }
