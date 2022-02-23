@@ -1,125 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using XrmDay.Data.Erkelenz;
-using XrmDay.Data.Erkelenz.Enumerations;
+using XrmDay.MainCall.Erkelenz;
 
 namespace XrmDay.MainCall
 {
     public class main_Erkelenz
     {
-        public void datenEinlesenContactPerson(ContactPerson_Erkelenz contact)
-        {
-            string ungueltig = "Eingabe ungültig";
-            string userInput;
-
-            // id
-            Console.Write("Id: ");
-            userInput = Console.ReadLine();
-            if (int.TryParse(userInput, out int parsedId)) { contact.Id = parsedId; }
-            else { Console.WriteLine(ungueltig); }
-
-            // first name
-            Console.Write("First Name: ");
-            contact.FirstName = Console.ReadLine();
-
-            // last name
-            Console.Write("Last Name: ");
-            contact.LastName = Console.ReadLine();
-
-            // birthday
-            Console.Write("Birthday: ");
-            string format = "dd.MM.yyyy";
-            DateTime date;
-            userInput = Console.ReadLine();
-            if (DateTime.TryParseExact(userInput, format, new CultureInfo("de-DE"), DateTimeStyles.None, out date)) { contact.Birthday = date; }
-            else { Console.WriteLine(ungueltig); }
-        }
-
-        public void datenAusgebenContactPerson(ContactPerson_Erkelenz contact)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\nId: " + contact.Id);
-            Console.WriteLine("First Name: " + contact.FirstName);
-            Console.WriteLine("Last Name: " + contact.LastName);
-            Console.WriteLine("Birthday: " + contact.Birthday.ToString("dd.MM.yyyy"));
-            Console.ForegroundColor = ConsoleColor.White;
-        }
-        public void datenEinlesenCustomer(Customer_Erkelenz customer)
-        {
-            // id
-            string ungueltig = "Eingabe ungültig";
-            Console.Write("Id: ");
-            string userInput = Console.ReadLine();
-            if (int.TryParse(userInput, out int parsedId)) { customer.Id = parsedId; }
-            else { Console.WriteLine(ungueltig); }
-
-            // customerNumber
-            Console.Write("Customer Number: ");
-            userInput = Console.ReadLine();
-            if (int.TryParse(userInput, out int parsedNumber)) { customer.CustomerNumber = parsedNumber; }
-            else { Console.WriteLine(ungueltig); }
-
-            // name
-            Console.Write("Name: ");
-            customer.Name = Console.ReadLine();
-
-            // zipcode
-            Console.Write("Zipcode: ");
-            customer.Zipcode = Console.ReadLine();
-
-            // country
-            Console.Write("Country (Germany, England, Austria, Brazil): ");
-            if (Enum.TryParse(Console.ReadLine(), out Country_Erkelenz parsedCountry)) { customer.Country = parsedCountry; }
-            else { Console.WriteLine(ungueltig); }
-
-            // street
-            Console.Write("Street: ");
-            customer.Street = Console.ReadLine();
-
-            // city
-            Console.Write("City: ");
-            customer.City = Console.ReadLine();
-
-            // contact person
-            customer.ContactPersons = new List<ContactPerson_Erkelenz>();
-            int count = 0;
-            string inputContact = Console.ReadLine();
-            while (inputContact != "Exit")
-            {
-                ContactPerson_Erkelenz contactPerson = new ContactPerson_Erkelenz();
-                Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("--------\nContact Person " + ++count + ": ");
-                datenEinlesenContactPerson(contactPerson);
-                Console.WriteLine("--------");
-                Console.ForegroundColor = ConsoleColor.White;
-                customer.ContactPersons.Add(contactPerson);
-                inputContact = Console.ReadLine();
-            }
-        }
-        public void datenAusgebenCustomer(Customer_Erkelenz customer)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nId: " + customer.Id);
-            Console.WriteLine("Customer Number: " + customer.CustomerNumber);
-            Console.WriteLine("Name: " + customer.Name);
-            Console.WriteLine("Zipcode: " + customer.Zipcode);
-            Console.WriteLine("Country: " + customer.Country);
-            Console.WriteLine("Street: " + customer.Street);
-            Console.WriteLine("City: " + customer.City);
-            int count = 0;
-            foreach (ContactPerson_Erkelenz contactPerson in customer.ContactPersons)
-            {
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("--------");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Contact Person " + ++count + ": ");
-                datenAusgebenContactPerson(contactPerson);
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("--------\n");
-            }
-            Console.ForegroundColor = ConsoleColor.White;
-        }
+        CustomerFunc_Erkelenz customerFunc = new CustomerFunc_Erkelenz();
         public void execute()
         {
             List<Customer_Erkelenz> kunden = new List<Customer_Erkelenz>();
@@ -132,7 +20,7 @@ namespace XrmDay.MainCall
             {
                 Customer_Erkelenz kunde = new Customer_Erkelenz();
                 Console.WriteLine("----------\nKunde " + ++count + ": ");
-                datenEinlesenCustomer(kunde);
+                customerFunc.datenEinlesenCustomer(kunde);
                 kunden.Add(kunde);
                 Console.WriteLine("----------\n");
                 userInput = Console.ReadLine();
@@ -145,7 +33,7 @@ namespace XrmDay.MainCall
                 Console.WriteLine("----------");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Kunde " + ++count + ": ");
-                datenAusgebenCustomer(customer);
+                customerFunc.datenAusgebenCustomer(customer);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("----------\n");
             }
