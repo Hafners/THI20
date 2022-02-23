@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace XrmDay.Data.Kain
 {
     public class Customer_Kain
@@ -17,5 +19,7 @@ namespace XrmDay.Data.Kain
             Austria,
             Brasil
         }
+        
+        public List<ContactPerson_Kain> contactpersonList { get; set; } = new List<ContactPerson_Kain>(); 
     }
 }
