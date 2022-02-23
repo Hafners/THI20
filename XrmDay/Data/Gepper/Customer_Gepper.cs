@@ -31,13 +31,29 @@ namespace XrmDay.Data
 
 		public void saveUserData()
 		{
+			string? userInput;
+
+			Console.WriteLine("Bitte ID eingeben: ");
+			userInput = Console.ReadLine();
+			int parsedID = int.Parse(userInput!);
+			bool isValid = int.TryParse(userInput, out int parsedID1);
+			if (isValid) {Id = parsedID1;}
+
+			Console.WriteLine("Bitte Kundennummer eingeben: ");
+			userInput = Console.ReadLine();
+			int parsedCN = int.Parse(userInput!);
+			isValid = int.TryParse(userInput, out int parsedCN1);
+			if (isValid) { CustomerNumber = parsedCN1; }
+
 			Console.WriteLine("Geben sie ihren vollen Namen ein: ");
-			string? userInput = Console.ReadLine();
+			userInput = Console.ReadLine();
 			Name = userInput;
 
 			Console.WriteLine("Geben sie ihre Postleitzahl ein: ");
 			userInput = Console.ReadLine();
 			Zipcode = userInput;
+
+			//TO-DO: Country
 
 			Console.WriteLine("Geben sie ihre Straße ein: ");
 			userInput = Console.ReadLine();
@@ -50,6 +66,8 @@ namespace XrmDay.Data
 
 		public void ausgeben()
         {
+			Console.WriteLine(Id);
+			Console.WriteLine(CustomerNumber);
 			Console.WriteLine(Name);
 			Console.WriteLine(Zipcode);
 			//Console.WriteLine(Country);
