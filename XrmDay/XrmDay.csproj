@@ -6,4 +6,8 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Erkelenz\Files\" />
+  </ItemGroup>
+
 </Project>
