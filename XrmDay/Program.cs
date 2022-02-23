@@ -8,6 +8,7 @@ namespace XrmDay
         static void Main(string[] args)
         {
             new main_Kain().execute(); 
+            new Main_Erkelenz().execute();
         }
     }
 }
