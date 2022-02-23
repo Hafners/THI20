@@ -20,7 +20,7 @@ namespace XrmDay.MainCall
             {
                 Customer_Erkelenz kunde = new Customer_Erkelenz();
                 Console.WriteLine("----------\nKunde " + ++count + ": ");
-                customerFunc.datenEinlesenCustomer(kunde);
+                customerFunc.datenEinlesen(kunde);
                 kunden.Add(kunde);
                 Console.WriteLine("----------\n");
                 userInput = Console.ReadLine();
@@ -33,7 +33,7 @@ namespace XrmDay.MainCall
                 Console.WriteLine("----------");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Kunde " + ++count + ": ");
-                customerFunc.datenAusgebenCustomer(customer);
+                customerFunc.datenAusgeben(customer);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("----------\n");
             }

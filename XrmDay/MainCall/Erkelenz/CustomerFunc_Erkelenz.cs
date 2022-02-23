@@ -9,7 +9,7 @@ namespace XrmDay.MainCall.Erkelenz
     {
         ContactPersonFunc_Erkelenz contactPersonFunc = new ContactPersonFunc_Erkelenz();
 
-        public void datenEinlesenCustomer(Customer_Erkelenz customer)
+        public void datenEinlesen(Customer_Erkelenz customer)
         {
             // id
             string ungueltig = "Eingabe ungültig";
@@ -54,7 +54,7 @@ namespace XrmDay.MainCall.Erkelenz
                 ContactPerson_Erkelenz contactPerson = new ContactPerson_Erkelenz();
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("--------\nContact Person " + ++count + ": ");
-                contactPersonFunc.datenEinlesenContactPerson(contactPerson);
+                contactPersonFunc.datenEinlesen(contactPerson);
                 Console.WriteLine("--------");
                 Console.ForegroundColor = ConsoleColor.White;
                 customer.ContactPersons.Add(contactPerson);
@@ -62,9 +62,8 @@ namespace XrmDay.MainCall.Erkelenz
             }
         }
 
-        public void datenAusgebenCustomer(Customer_Erkelenz customer)
+        public void datenAusgeben(Customer_Erkelenz customer)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nId: " + customer.Id);
             Console.WriteLine("Customer Number: " + customer.CustomerNumber);
             Console.WriteLine("Name: " + customer.Name);
@@ -79,11 +78,10 @@ namespace XrmDay.MainCall.Erkelenz
                 Console.WriteLine("--------");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Contact Person " + ++count + ": ");
-                contactPersonFunc.datenAusgebenContactPerson(contactPerson);
+                contactPersonFunc.datenAusgeben(contactPerson);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("--------\n");
             }
-            Console.ForegroundColor = ConsoleColor.White;
         }
 
     }
