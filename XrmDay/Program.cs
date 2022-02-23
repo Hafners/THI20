@@ -1,4 +1,5 @@
-﻿using System;
+﻿using XrmDay.MainCall;
+using System;
 
 namespace XrmDay
 {
@@ -6,7 +7,10 @@ namespace XrmDay
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+            Main_Verachter main_Verachter = new Main_Verachter();
+            main_Verachter.execute();
+            
         }
     }
 }
