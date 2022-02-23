@@ -19,6 +19,18 @@ namespace XrmDay.Data
 		public void saveUserData()
         {
 			Console.WriteLine("To-Do");
-        }
+
+
+
+			Console.WriteLine("Geben sie ihren Vornamen ein: ");
+			string userInput = Console.ReadLine();
+			Firstname = userInput;
+
+			Console.WriteLine("Geben sie ihren Nachnamen ein: ");
+			userInput = Console.ReadLine();
+			Lastname = userInput;
+
+
+		}
 	}
 }
