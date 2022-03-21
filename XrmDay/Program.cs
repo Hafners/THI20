@@ -7,23 +7,16 @@ namespace XrmDay
     class Program
     {
         static void Main(string[] args)
-        {/*
-            new main_Kain().execute();
-            new Customer_Gepper().execute();
-            new main_heimbach().Execute();
-            new main_Erkelenz().execute();
-            new main_schweizer().Execute();
-            new main_kerscher().execute();
-            */
-            
-            new Main_Verachter().execute();
-            
-            //new main_schweizer().Execute();
+        {
             //new main_Kain().execute();
             //new main_Gepper().execute();
-            //new main_Heimbach().execute();
-            //new main_Erkelenz().execute();
+            //new main_heimbach().Execute();
+           //new main_Erkelenz().execute();
             //new main_schweizer().Execute();
+            new main_kerscher().execute();
+            //new Main_Verachter().execute();
+            
+         
         }
     }
 }

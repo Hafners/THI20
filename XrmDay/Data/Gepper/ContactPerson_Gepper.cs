@@ -14,6 +14,24 @@ namespace XrmDay.Data
 		public string Lastname { get; set; } = string.Empty;
 
 		//todo
-		public int Date { get; set; } = 0;
+		public int Birthday { get; set; } = 0;
+
+		public void saveUserData()
+        {
+			//To-Do: Unfinished Code:
+			Console.WriteLine("To-Do: Unfinished Code:");
+
+			Console.WriteLine("Geben sie ihren Vornamen ein: ");
+			string userInput = Console.ReadLine();
+			Firstname = userInput;
+
+			Console.WriteLine("Geben sie ihren Nachnamen ein: ");
+			userInput = Console.ReadLine();
+			Lastname = userInput;
+
+			Console.WriteLine("Geben sie ihren Geburtstag an (tt.mm.jjjj): ");
+			userInput = Console.ReadLine();
+
+		}
 	}
 }

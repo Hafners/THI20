@@ -28,5 +28,7 @@ namespace XrmDay.Data.Kerscher
         string city;
         public 
         string country;
+        
+            
     }
 }
