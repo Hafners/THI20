@@ -1,6 +1,6 @@
 ﻿namespace XrmRestApi.Data
 {
-    public class Hafner_Customer
+    public class Erkelenz_Customer
     {
         #region Properties
 
