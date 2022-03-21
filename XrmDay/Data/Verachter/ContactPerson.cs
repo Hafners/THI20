@@ -21,6 +21,8 @@ namespace XrmDay.Data.Verachter
             Id = 0;
         }
 
+        public List<Order> orders = new List<Order>();
+
         #endregion
 
     }

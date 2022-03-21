@@ -9,13 +9,16 @@ namespace XrmDay.MainCall
     public class Main_Verachter
     {
         List<Customer> customers = new List<Customer>();
+        
+        
         Customer kunde = new Customer();
         ContactPerson kontakt = new ContactPerson();
-        List<ContactPerson> cPerson = new List<ContactPerson>();
+        Order order = new Order();
+        OrderPosition orderPosition = new OrderPosition();
 
         public void einlesenKunde() {
 
-            Console.WriteLine("Geben Sie eine ID an:");
+            Console.WriteLine("Geben Sie eine KundenID an:");
             string i = Console.ReadLine();
             bool isValid = int.TryParse(i, out int parsedId);
             if (isValid)
@@ -83,7 +86,7 @@ namespace XrmDay.MainCall
 
         public void einlesenKontakt()
         {
-            Console.WriteLine("Geben Sie eine ID an:");
+            Console.WriteLine("Geben Sie eine KontaktID an:");
             string i = Console.ReadLine();
             bool isValid = int.TryParse(i, out int parsedId);
             if (isValid)
@@ -99,10 +102,16 @@ namespace XrmDay.MainCall
             string cn = Console.ReadLine();
             kontakt.LastName = cn;
 
-            Console.WriteLine("Geben Sie das Geburtsdatum an: (DD/MM/YYYY)");
-            string inputDate = Console.ReadLine();
-            DateTime.TryParse(inputDate, out DateTime parsedDate);
-            kontakt.Birthday = parsedDate;
+            Console.WriteLine("Geben Sie das Geburtsdatum an: (MM/DD/YYYY)");
+            if (DateTime.TryParse(Console.ReadLine(), out DateTime parsedBirthday))
+            {
+                kontakt.Birthday = parsedBirthday;
+            }
+            else
+            {
+                Console.WriteLine("You have entered an incorrect value.");
+            }
+            
 
             Console.WriteLine("Wollen Sie den Kontakt ausgeben? (j/n)");
             string aw = Console.ReadLine();
@@ -110,7 +119,81 @@ namespace XrmDay.MainCall
             {
                 ausgebenKontakt();
             }
-            cPerson.Add(kontakt);
+            kunde.cPerson.Add(kontakt);
+        }
+
+        public void einlesenBestellung()
+        {
+            Console.WriteLine("Geben Sie die BestellID ein:");
+            string inputId = Console.ReadLine();
+            bool isValid = int.TryParse(inputId, out int parsedId);
+            if (isValid)
+            {
+                order.Id = parsedId;
+            }
+
+            Console.WriteLine("Geben Sie die BestellID ein:");
+            string inputSum = Console.ReadLine();
+            isValid = decimal.TryParse(inputId, out decimal parsedSum);
+            if (isValid)
+            {
+                order.SummaryAmount = parsedSum;
+            }
+
+            Console.WriteLine("Geben Sie das Bestelldatum an: (MM/DD/YYYY)");
+            if (DateTime.TryParse(Console.ReadLine(), out DateTime parsedDate))
+            {
+                order.OrderDate = parsedDate;
+            }
+            else
+            {
+                Console.WriteLine("You have entered an incorrect value.");
+            }
+
+            Console.WriteLine("Wollen Sie die Bestellung ausgeben? (j/n)");
+            string aw = Console.ReadLine();
+            if (aw.ToLower() == "j")
+            {
+                ausgebenBestellung();
+            }
+            orders.Add(order);
+        }
+
+        public void einlesenBestellposition()
+        {
+            Console.WriteLine("Geben Sie die BestellPositionsID ein:");
+            string inputId = Console.ReadLine();
+            bool isValid = int.TryParse(inputId, out int parsedId);
+            if (isValid)
+            {
+                orderPosition.Id = parsedId;
+            }
+
+            Console.WriteLine("Geben Sie die Arikelnummer ein:");
+            string inputArticelNr = Console.ReadLine();
+            isValid = int.TryParse(inputArticelNr, out int parsedArticelNr);
+            if (isValid)
+            {
+                orderPosition.Id = parsedArticelNr;
+            }
+
+            Console.WriteLine("Geben Sie die Arikelnummer ein:");
+            string inputAmount = Console.ReadLine();
+            isValid = decimal.TryParse(inputAmount, out decimal parsedAmount);
+            if (isValid)
+            {
+                orderPosition.Amount = parsedAmount;
+            }
+
+            Console.WriteLine("Wollen Sie die BestellungPosition ausgeben? (j/n)");
+            string aw = Console.ReadLine();
+            if (aw.ToLower() == "j")
+            {
+                ausgebenBestellposition();
+            }
+            orderPositions.Add(orderPosition);
+
+
 
         }
 
@@ -130,17 +213,41 @@ namespace XrmDay.MainCall
         public void ausgebenKontakt()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Id = " + kunde.Id);
+            Console.WriteLine("Id = " + kontakt.Id);
             Console.WriteLine("Firstname = " + kontakt.FirstName);
             Console.WriteLine("Lastname = " + kontakt.LastName);
             Console.WriteLine("Birthday = " + kontakt.Birthday);
             Console.ForegroundColor = ConsoleColor.White;
+        }
+        
+        public void ausgebenBestellung()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Id = " + order.Id);
+            Console.WriteLine("SummaryAmmount = " + order.SummaryAmount);
+            Console.WriteLine("OrderDate = " + order.OrderDate);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public void ausgebenBestellposition()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Id = " + orderPosition.Id);
+            Console.WriteLine("Articlenumber = " + orderPosition.ArticleNumber);
+            Console.WriteLine("Amount = " + orderPosition.Amount);
+            Console.ForegroundColor = ConsoleColor.White;
+
         }
 
         public void execute() {
 
             string inputKunde = String.Empty;
             string inputKontakt = String.Empty;
+            string inputOrder = String.Empty;
+            string inputOrderposition = String.Empty;
+
+            bool run = true;
+
             do {
 
                 Console.WriteLine("Wollen Sie einen Kunden anlegen? ('Exit' zum beenden)");
@@ -157,9 +264,29 @@ namespace XrmDay.MainCall
                     einlesenKontakt();
                 }
 
-            } while (!string.Equals(inputKunde, "exit", StringComparison.OrdinalIgnoreCase) && 
-                    !string.Equals(inputKontakt, "exit", StringComparison.OrdinalIgnoreCase));
+                Console.WriteLine("Wollen Sie eine Bestellung anlegen? ('Exit' zum beenden)");
+                inputOrder = Console.ReadLine();
+                if (inputOrder.ToLower() == "ja")
+                {
+                    einlesenBestellung();
+                }
 
+                Console.WriteLine("Wollen Sie eine Bestellposition anlegen? ('Exit' zum beenden)");
+                inputOrderposition = Console.ReadLine();
+                if (inputOrderposition.ToLower() == "ja")
+                {
+                    einlesenBestellposition();
+                }
+
+                run = !(string.Equals(inputKunde, "exit", StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(inputKontakt, "exit", StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(inputOrder, "exit", StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(inputOrderposition, "exit", StringComparison.OrdinalIgnoreCase));
+
+           } while (run);
+
+        
+        
         }
     }
 

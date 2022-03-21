@@ -36,6 +36,8 @@ namespace XrmDay.Data.Verachter
             Country country;
         }
 
-    #endregion
+        public List<ContactPerson> cPerson = new List<ContactPerson>();
+
+        #endregion
     }
 }

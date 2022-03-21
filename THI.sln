@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kundenverwaltung", "Kundenverwaltung\Kundenverwaltung.csproj", "{15A03201-9587-4985-ABA3-62421431C69A}"
 EndProject
@@ -18,8 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tasks", "Tasks", "{08FE50E4
 		7_UI.txt = 7_UI.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XrmDay", "XrmDay\XrmDay.csproj", "{6BF55399-5FA6-4E22-8BE1-FAE61FEB87D8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,10 +32,6 @@ Global
 		{F2623C2C-DA79-4F4A-ABD0-E4A634CFBAAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2623C2C-DA79-4F4A-ABD0-E4A634CFBAAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2623C2C-DA79-4F4A-ABD0-E4A634CFBAAE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6BF55399-5FA6-4E22-8BE1-FAE61FEB87D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6BF55399-5FA6-4E22-8BE1-FAE61FEB87D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6BF55399-5FA6-4E22-8BE1-FAE61FEB87D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6BF55399-5FA6-4E22-8BE1-FAE61FEB87D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
